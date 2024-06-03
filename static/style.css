@@ -1,0 +1,147 @@
+/* style.css */
+
+/* General styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("bg_index.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Set the height of the body to full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 70px; /* Add some padding */
+    margin-top: 50px; /* Adjust the margin-top */
+    margin-left: 30px;
+}
+
+.upload-section {
+    background-color: rgb(130, 142, 146); /* Set background color */
+    padding: 30px; /* Add some padding */
+    border: 10px solid #043874; /* Add a border */
+    border-radius: 40px; /* Add border radius for a rounded look */
+    margin-right: 20px; /* Add space between container and images */
+}
+
+.uploaded-image {
+    margin-bottom: 20px; /* Add space between images */
+}
+
+.uploaded-image img {
+    width: 100px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.uploaded-image h5 {
+    margin-top: 10px; /* Add space between image and heading */
+    font-weight: bold; /* Make the heading bold */
+    font-size: 16px; /* Adjust font size */
+    color: #1e3580; /* Change the color of the heading */
+    margin-bottom: 5px;
+    opacity: 0;
+}
+
+.upload-section h4 {
+    margin-top: 0; /* Remove default margin for h4 */
+    font-weight: bold; /* Make the heading bold */
+    font-size: larger;
+    color: #1e3580; /* Change the color of the heading */
+    font-family: 'CustomFont', Georgia, sans-serif; /* Use the custom font */
+}
+
+.upload-section input[type="file"] {
+    margin-top: 20px; /* Add margin between elements */
+}
+
+.upload-section button {
+    margin-top: 20px; /* Add margin between elements */
+    padding: 10px 20px; /* Add padding */
+    background-color: #1e3580; /* Green background color */
+    border: none; /* Remove border */
+    color: rgb(255, 255, 255); /* White text color */
+    font-weight: bold; 
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline block */
+    font-size: 16px; /* Set font size */
+    border-radius: 8px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.upload-section button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Result page styles */
+
+.result-background {
+    background-image: url("bg_result.png"); /* Specify the background image for result.html */
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Set the height of the body to full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.result-container {
+    background-color: rgb(130, 142, 146); /* Grey background color */
+    border: 5px solid #fff; /* White border */
+    padding: 30px; /* Add some padding */
+}
+
+.result-heading {
+    font-family: Arial, sans-serif; /* Specify font family */
+    font-size: 36px; /* Adjust font size */
+    color: #1e3580; /* Change font color */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.result-subheading {
+    font-family: Arial, sans-serif; /* Specify font family */
+    font-size: 24px; /* Adjust font size */
+    color: #043874; /* Change font color */
+    margin-bottom: 10px; /* Add some space below the subheading */
+}
+
+.result-paragraph {
+    font-family: Arial, sans-serif; /* Specify font family */
+    font-size: 18px; /* Adjust font size */
+    color: #333; /* Change font color */
+    margin-bottom: 10px; /* Add some space below the paragraph */
+}
+
+.result-button {
+    padding: 10px 20px; /* Add padding */
+    background-color: #1e3580; /* Green background color */
+    border: none; /* Remove border */
+    color: #fff; /* White text color */
+    font-weight: bold;
+    font-size: 16px; /* Adjust font size */
+    border-radius: 8px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+    margin-top: 20px; /* Add margin above the button */
+}
+
+.result-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.progress-bar {
+    width: 0%;
+    height: 15px; /* Adjust the height of the progress bar */
+    background-color: #e03030; /* Red color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
