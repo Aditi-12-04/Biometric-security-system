@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization</title>
+    <style>
+        body {
+            background-image: url("/static/visualization.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-left: 30px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 90px;
+        }
+
+        .image-item {
+            flex: 0 0 calc(30% - 20px); /* Adjust image width */
+            position: relative;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border: 2px solid white; /* Add border around each image */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        .image-item .description {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 5px;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* Adjust width */
+            display: none; /* Hide description by default */
+        }
+
+        .image-item:hover .description {
+            display: block; /* Show description on hover */
+        }
+
+        .image-item .description h2 {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .image-item .description p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hide modal by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%; /* Max width for modal content */
+            max-height: 80%; /* Max height for modal content */
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <div class="image-item">
+                <img src="/static/ConfusionMatrix - Fingerprint.png" alt="Image 1" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Confusion Matrix - Fingerprint model</h2>
+                    <p>This image shows the high values in diagonal which means model has predicted the correct results.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Overall-Metrics-Fingerprint.png" alt="Image 2" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Overall Metrics - Fingerprint model</h2>
+                    <p>This image shows the overall accuracy, precison, recall and F1 score for the fingerprint model.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Graph - Fingerprint.png" alt="Image 3" onclick="openModal(this.src, true)" style="height: 100%">
+                <div class="description">
+                    <h2>Graph - Fingerprint</h2>
+                    <p>This image represents the visualized report for the whole model.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat the structure for the next set of images -->
+        <div class="image-container">
+            <div class="image-item">
+                <img src="/static/ConfusionMatrix - Left Iris.png" alt="Image 1" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Confusion Matrix - Left Iris</h2>
+                    <p>This image shows the high values in diagonal which means model has predicted the correct results.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Overall-Metrics-Left-Iris.png" alt="Image 2" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Overall Metrics - Left Iris</h2>
+                    <p>This image shows the overall accuracy, precison, recall and F1 score for the left iris model.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Graph - Left Iris.png" alt="Image 3" onclick="openModal(this.src, true)" style="height: 100%">
+                <div class="description">
+                    <h2>Graph - Left Iris</h2>
+                    <p>This image represents the visualized report for the whole model.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="/static/ConfusionMatrix - Right Iris.png" alt="Image 1" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Confusion Matrix - Right Iris</h2>
+                    <p>This image shows the high values in diagonal which means model has predicted the correct results.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Overall-Metrics-Iris-Right.png" alt="Image 2" onclick="openModal(this.src)" style="height: 100%">
+                <div class="description">
+                    <h2>Overall Metrics - Right Iris</h2>
+                    <p>This image shows the overall accuracy, precison, recall and F1 score for the right iris model.</p>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="/static/Graph - Right Iris.png" alt="Image 3" onclick="openModal(this.src, true)" style="height: 100%">
+                <div class="description">
+                    <h2>Graph - Right Iris</h2>
+                    <p>This image represents the visualized report for the whole model.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Open the modal
+        function openModal(src, isGraph) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            if (isGraph) {
+                modalImg.style.maxWidth = "none"; // Remove max width for graphs
+                modalImg.style.maxHeight = "150%"; // Remove max height for graphs
+            } else {
+                modalImg.style.maxWidth = "80%"; // Set max width for other images
+                modalImg.style.maxHeight = "80%"; // Set max height for other images
+            }
+            modalImg.src = src;
+        }
+
+        // Close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

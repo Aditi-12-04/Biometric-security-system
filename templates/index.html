@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Biometric Security System</title>
+    <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+</head>
+<body background="bg_index.png" >
+<div class="container">
+    <div class="upload-section">
+        <h4>UPLOAD FINGERPRINT IMAGE</h4>
+        <input accept=".bmp" id="fingerprintInput" type="file"><br>
+        <br>
+        <br>
+        <h4>UPLOAD IRIS IMAGE</h4>
+        <input accept=".bmp" id="irisInput" type="file"><br>
+        <button id="upload" type="submit">UPLOAD</button><br>
+        <button id="authenticate" class="button-style" onclick="window.location.href='{{ url_for('authenticate') }}';">AUTHENTICATE</button>
+    </div>
+    <div id="imageDisplay">
+        <div class="uploaded-image">
+            <img id="fingerprintImg" src="#" alt="Uploaded Fingerprint Image">
+            <h5>Uploaded Fingerprint Image</h5>
+        </div>
+        <div class="uploaded-image">
+            <img id="irisImg" src="#" alt="Uploaded Iris Image">
+            <h5>Uploaded Iris Image</h5>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename = 'script.js') }}"></script>
+</body>
+</html>

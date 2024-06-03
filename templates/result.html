@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biometric Security System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename = 'bg_result.png') }}"); /* Background image for result.html */
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .result-container {
+            background-color: rgb(130, 142, 146); /* Grey background color */
+            border: 5px solid #26e9f7; /* White border */
+            padding: 50px; /* Add some padding */
+            color: #000000; /* Set text color to white */
+            margin-left: 90px;
+            border-radius: 40px;
+            margin-top: 80px;
+        }
+
+        #back {
+            background-color: #1e3580; /* Green background color */
+            border: none; /* Remove border */
+            color: #fff; /* White text color */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Add padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 8px; /* Add border radius */
+            cursor: pointer; /* Add cursor pointer */
+            margin-top: 20px; /* Add margin above the button */
+        }
+
+        #back:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #see-authentication {
+            background-color: #1e3580; /* Green background color */
+            border: none; /* Remove border */
+            color: #fff; /* White text color */
+            font-weight: bold; /* Bold text */
+            padding: 10px 20px; /* Add padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 8px; /* Add border radius */
+            cursor: pointer; /* Add cursor pointer */
+            margin-top: 20px; /* Add margin above the button */
+            margin-left: 10px; /* Add margin to the left of the button */
+        }
+
+        #see-authentication:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #h1_result{
+            font-size: 22px;
+            font-family: 'CustomFont', Georgia, sans-serif;
+            color: #000000;
+        }
+
+        #h2_result{
+            font-family: 'CustomFont', Georgia, sans-serif;
+            color: #000000;
+        }
+
+        #h3_result{
+            font-family: 'CustomFont', Georgia, sans-serif;
+            color: #000000;
+        }
+
+        #p1{
+            font-family: 'CustomFont', Georgia, sans-serif;
+            color: #000000;
+        }
+
+        #p2{
+            font-family: 'CustomFont', Georgia, sans-serif;
+            color: #000000;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1 id="h1_result">AUTHENTICATION:</h1>
+        <br>
+        <h2 id="h2_result"> {{status}} </h2>
+        <h3 id="h3_result"> {{outputString}} </h3>
+        {% if status %}
+        <p id="p1"> Fingerprint Match Confidence Score: {{scores[0]}} </p>
+        <p id="p2"> Iris Match Confidence Score: {{scores[1]}} </p>
+        {% endif %}
+        <button id="back" class="button-style" onclick="window.location.href='{{ url_for('index') }}';">Go Back</button>
+        <button id="see-authentication" class="button-style" onclick="window.location.href='{{ url_for('visualize') }}';">See Authentication</button>
+    </div>
+    <script src="{{ url_for('static', filename = 'script.js') }}"></script>
+</body>
+</html>
